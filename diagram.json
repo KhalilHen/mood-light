@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "author": "The Bin - Hack Club",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard",
+      "id": "bb1",
+      "top": -359.8,
+      "left": -149.6,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "wokwi-slide-potentiometer-0",
+      "top": -52.6,
+      "left": -183.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-neopixel",
+      "id": "wokwi-neopixel-0",
+      "top": -185.9,
+      "left": 8.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "wokwi-pushbutton-0",
+      "top": -214.6,
+      "left": 345.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "wokwi-photoresistor-sensor-0",
+      "top": -451.5,
+      "left": 282.5,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-arduino-mega",
+      "id": "mega1",
+      "top": -395.2,
+      "left": -329,
+      "rotate": 90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "mega1:GND.1", "bb1:bn.1", "green", [ "h28.8", "v-153.8" ] ],
+    [ "mega1:5V", "bb1:bp.2", "red", [ "h-16.5", "v-180.1", "h230.4", "v-19.2" ] ],
+    [ "bb1:bn.3", "bb1:5b.j", "green", [ "h0" ] ],
+    [ "bb1:bp.4", "bb1:6b.j", "red", [ "h0" ] ],
+    [ "wokwi-photoresistor-sensor-0:VCC", "bb1:6b.f", "red", [ "v19.2", "h28.8", "v-211.2" ] ],
+    [ "wokwi-photoresistor-sensor-0:GND", "bb1:5b.f", "black", [ "v28.8", "h58", "v-220.8" ] ],
+    [
+      "wokwi-photoresistor-sensor-0:AO",
+      "mega1:A0",
+      "green",
+      [ "v48", "h115.9", "v-345.6", "h-787.2", "v384" ]
+    ],
+    [ "bb1:bn.45", "bb1:55b.j", "green", [ "h0" ] ],
+    [ "wokwi-slide-potentiometer-0:GND", "bb1:55b.i", "black", [ "v-19.2", "h149.2", "v19.2" ] ],
+    [ "bb1:bp.42", "bb1:52b.j", "red", [ "h0" ] ],
+    [
+      "wokwi-slide-potentiometer-0:VCC",
+      "bb1:52b.i",
+      "red",
+      [ "h-9.6", "v-48", "h288", "v0", "h57.6" ]
+    ],
+    [ "wokwi-slide-potentiometer-0:SIG", "mega1:A1", "white", [ "h-48", "v-240.8" ] ],
+    [ "wokwi-pushbutton-0:1.r", "bb1:35b.f", "red", [ "v0" ] ],
+    [ "bb1:bp.28", "bb1:35b.j", "red", [ "h0" ] ],
+    [ "bb1:bp.30", "bb1:37b.j", "green", [ "h0" ] ],
+    [ "wokwi-pushbutton-0:2.l", "bb1:37b.f", "green", [ "h-48", "v-19" ] ],
+    [ "wokwi-pushbutton-0:2.r", "mega1:2", "blue", [ "h19.4", "v-67", "h-384" ] ]
+  ],
+  "dependencies": {}
+}
