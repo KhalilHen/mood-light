@@ -6,8 +6,8 @@
     {
       "type": "wokwi-breadboard",
       "id": "bb1",
-      "top": -359.8,
-      "left": -149.6,
+      "top": -369.4,
+      "left": -197.6,
       "rotate": 90,
       "attrs": {}
     },
@@ -21,8 +21,8 @@
     {
       "type": "wokwi-neopixel",
       "id": "wokwi-neopixel-0",
-      "top": -185.9,
-      "left": 8.6,
+      "top": -214.7,
+      "left": -10.6,
       "attrs": {}
     },
     {
@@ -76,7 +76,12 @@
     [ "bb1:bp.28", "bb1:35b.j", "red", [ "h0" ] ],
     [ "bb1:bp.30", "bb1:37b.j", "green", [ "h0" ] ],
     [ "wokwi-pushbutton-0:2.l", "bb1:37b.f", "green", [ "h-48", "v-19" ] ],
-    [ "wokwi-pushbutton-0:2.r", "mega1:2", "blue", [ "h19.4", "v-67", "h-384" ] ]
+    [ "wokwi-pushbutton-0:2.r", "mega1:2", "blue", [ "h19.4", "v-67", "h-384" ] ],
+    [ "wokwi-neopixel-0:DIN", "mega1:4", "green", [ "h-0.8", "v-86.4" ] ],
+    [ "wokwi-neopixel-0:VSS", "bb1:40b.j", "green", [ "v0" ] ],
+    [ "bb1:bn.31", "bb1:40b.i", "green", [ "h0" ] ],
+    [ "wokwi-neopixel-0:VDD", "bb1:43b.j", "red", [ "h-9.6", "v28.8" ] ],
+    [ "bb1:bp.34", "bb1:43b.i", "red", [ "h0" ] ]
   ],
   "dependencies": {}
 }
