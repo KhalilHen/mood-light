@@ -1,20 +1,14 @@
+#include "Neopixel.h"
+
+// Adafruit_NeoPixel NeoPixel(NUM_PIXELS, PIN_NEO_PIXEL, NEO_GRB + NEO_KHZ800);
+
+
 #define LDR_PIN A0
 #define  slider A1 
 
 
+
 //Neopixel
-
-#include <Adafruit_NeoPixel.h>
-#ifdef __AVR__
-#include <avr/power.h>  // Required for 16 MHz Adafruit Trinket
-#endif
-
-#define PIN_NEO_PIXEL 4  // Arduino pin that connects to NeoPixel
-
-#define NUM_PIXELS 20    // The number of LEDs (pixels) on NeoPixel
-
-#define DELAY_INTERVAL 250 
-Adafruit_NeoPixel NeoPixel(NUM_PIXELS, PIN_NEO_PIXEL, NEO_GRB + NEO_KHZ800);
 
 
 //Button code
@@ -56,16 +50,12 @@ checkButtonValue();
 
 readSliderValue();
 
+readLightValue();
+
 if(!turnOffLED) {
   NeoPixel.clear(); 
+adjustColors();
 
- for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
-    NeoPixel.setPixelColor(pixel, NeoPixel.Color(0, 255, 0));  // it only takes effect if pixels.show() is called
-    NeoPixel.show();         
-                                  // send the updated pixel colors to the NeoPixel hardware.
-
-    delay(DELAY_INTERVAL);  // pause between each pixel
-  } 
 
  NeoPixel.clear();
 
@@ -83,7 +73,6 @@ if(!turnOffLED) {
 
 
 
-readLightValue();
 
 
   Serial.println(lux);
@@ -103,11 +92,26 @@ void readLightValue() {
 void adjustColors() {
 
 
-  if(lux >= 0  && <=  200) {
+if (lux >= 0 && lux <= 200) {
 
 
     
+    
+    setColorYellow();
+
+    delay(3000);
+    
   }
+  else if(lux >=  100 && lux <= 500 ) {
+    setColorGreen();
+
+  }
+
+else if(lux >= 500) {
+
+  setColorMagenta();
+
+}
 }
 void readSliderValue() {
 
