@@ -26,13 +26,6 @@
       "attrs": {}
     },
     {
-      "type": "wokwi-pushbutton",
-      "id": "wokwi-pushbutton-0",
-      "top": -214.6,
-      "left": 345.6,
-      "attrs": {}
-    },
-    {
       "type": "wokwi-photoresistor-sensor",
       "id": "wokwi-photoresistor-sensor-0",
       "top": -451.5,
@@ -47,6 +40,13 @@
       "left": -329,
       "rotate": 90,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": -213.4,
+      "left": 259.2,
+      "attrs": { "color": "black", "key": "1" }
     }
   ],
   "connections": [
@@ -72,16 +72,16 @@
       [ "h-9.6", "v-48", "h288", "v0", "h57.6" ]
     ],
     [ "wokwi-slide-potentiometer-0:SIG", "mega1:A1", "white", [ "h-48", "v-240.8" ] ],
-    [ "wokwi-pushbutton-0:1.r", "bb1:35b.f", "red", [ "v0" ] ],
     [ "bb1:bp.28", "bb1:35b.j", "red", [ "h0" ] ],
     [ "bb1:bp.30", "bb1:37b.j", "green", [ "h0" ] ],
-    [ "wokwi-pushbutton-0:2.l", "bb1:37b.f", "green", [ "h-48", "v-19" ] ],
-    [ "wokwi-pushbutton-0:2.r", "mega1:2", "blue", [ "h19.4", "v-67", "h-384" ] ],
     [ "wokwi-neopixel-0:DIN", "mega1:4", "green", [ "h-0.8", "v-86.4" ] ],
     [ "wokwi-neopixel-0:VSS", "bb1:40b.j", "green", [ "v0" ] ],
     [ "bb1:bn.31", "bb1:40b.i", "green", [ "h0" ] ],
     [ "wokwi-neopixel-0:VDD", "bb1:43b.j", "red", [ "h-9.6", "v28.8" ] ],
-    [ "bb1:bp.34", "bb1:43b.i", "red", [ "h0" ] ]
+    [ "bb1:bp.34", "bb1:43b.i", "red", [ "h0" ] ],
+    [ "btn1:2.l", "bb1:37b.g", "green", [ "h0" ] ],
+    [ "btn1:1.r", "bb1:35b.h", "red", [ "v-19.2", "h-172" ] ],
+    [ "btn1:2.r", "mega1:2", "blue", [ "h29.6", "v-57.2" ] ]
   ],
   "dependencies": {}
 }

@@ -52,12 +52,12 @@ void setup() {
 
 void loop() {
 
-
+checkButtonValue();
 
 readSliderValue();
 
-  NeoPixel.clear();  // set all pixel colors to 'off'. It only takes effect if pixels.show() is called
 if(!turnOffLED) {
+  NeoPixel.clear(); 
 
  for (int pixel = 0; pixel < NUM_PIXELS; pixel++) {           // for each pixel
     NeoPixel.setPixelColor(pixel, NeoPixel.Color(0, 255, 0));  // it only takes effect if pixels.show() is called
@@ -83,12 +83,8 @@ if(!turnOffLED) {
 
 
 
+readLightValue();
 
-  //Converting the value to lux
-  int analogValue = analogRead(LDR_PIN);
-    float voltage = analogValue / 1024.0 * 5.0;
-    float resistance = 2000 * voltage / (1 - voltage / 5.0);
-    lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA));
 
   Serial.println(lux);
 
@@ -96,6 +92,23 @@ if(!turnOffLED) {
   delay(1000); // Adjust delay as needed
 }
 
+void readLightValue() {
+
+  int analogValue = analogRead(LDR_PIN);
+    float voltage = analogValue / 1024.0 * 5.0;
+    float resistance = 2000 * voltage / (1 - voltage / 5.0);
+    lux = pow(RL10 * 1e3 * pow(10, GAMMA) / resistance, (1 / GAMMA));
+
+}
+void adjustColors() {
+
+
+  if(lux >= 0  && <=  200) {
+
+
+    
+  }
+}
 void readSliderValue() {
 
   
@@ -119,8 +132,8 @@ void checkButtonValue() {
 
    //TODO Add logic here  
           turnOffLED = !turnOffLED;  // Toggle beep state
+      Serial.println(turnOffLED ? "LED is turned off" : "LED is turned on");
 
-            Serial.println(turnOffLED ? "Beep is turned off" : "Beep is turned on");
 
     }
     else {
