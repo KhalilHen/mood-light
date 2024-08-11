@@ -36,8 +36,8 @@
     {
       "type": "wokwi-arduino-mega",
       "id": "mega1",
-      "top": -395.2,
-      "left": -329,
+      "top": -404.8,
+      "left": -559.4,
       "rotate": 90,
       "attrs": {}
     },
@@ -47,6 +47,13 @@
       "top": -213.4,
       "left": 259.2,
       "attrs": { "color": "black", "key": "1" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -981.2,
+      "left": -311.2,
+      "attrs": {}
     }
   ],
   "connections": [
@@ -81,7 +88,15 @@
     [ "bb1:bp.34", "bb1:43b.i", "red", [ "h0" ] ],
     [ "btn1:2.l", "bb1:37b.g", "green", [ "h0" ] ],
     [ "btn1:1.r", "bb1:35b.h", "red", [ "v-19.2", "h-172" ] ],
-    [ "btn1:2.r", "mega1:2", "blue", [ "h29.6", "v-57.2" ] ]
+    [ "btn1:2.r", "mega1:2", "blue", [ "h29.6", "v-57.2" ] ],
+    [ "keypad1:R1", "mega1:13", "violet", [ "v0" ] ],
+    [ "keypad1:R2", "mega1:12", "violet", [ "v278.4", "h-10" ] ],
+    [ "keypad1:R3", "mega1:11", "violet", [ "v288", "h-38.7" ] ],
+    [ "keypad1:R4", "mega1:10", "violet", [ "v307.2", "h-67.4", "v-9.6" ] ],
+    [ "keypad1:C1", "mega1:9", "gold", [ "v326.4", "h-19.3", "v-9.6", "h-67.2", "v-9.6" ] ],
+    [ "keypad1:C2", "mega1:8", "gold", [ "v326.4", "h-38.4" ] ],
+    [ "keypad1:C3", "mega1:7", "gold", [ "v0" ] ],
+    [ "keypad1:C4", "mega1:6", "gold", [ "v345.6", "h-48.3" ] ]
   ],
   "dependencies": {}
 }
