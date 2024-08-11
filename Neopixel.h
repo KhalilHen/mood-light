@@ -9,13 +9,15 @@
 
 extern Adafruit_NeoPixel NeoPixel;
 
-void setColorBlue();
-void setColorDarkPurple();
-void setColorGreen();
-void setColorYellow();
-void setColorMagenta();
-void setColorPurple();
-void setColorLightCyan();
-void setColorWhite();
+void setColorWarmWhite();
+void setColorSoftYellow();
+void setColorRed();
+void setColorSoftBlue();
+void setColorLightGreen();
+void setColorBrightBlue();
+void setColorCoolWhite();
+void setColorCoolBlue();
+void setColorWhiteLight();
+void setColorCyan(); 
 
 #endif

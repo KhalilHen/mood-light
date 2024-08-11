@@ -1,6 +1,5 @@
 #include "Neopixel.h"
 
-// Adafruit_NeoPixel NeoPixel(NUM_PIXELS, PIN_NEO_PIXEL, NEO_GRB + NEO_KHZ800);
 
 
 #define LDR_PIN A0
@@ -50,12 +49,9 @@ checkButtonValue();
 
 readSliderValue();
 
-readLightValue();
-
 if(!turnOffLED) {
-  NeoPixel.clear(); 
-adjustColors();
 
+adjustColors();
 
  NeoPixel.clear();
 
@@ -73,6 +69,7 @@ adjustColors();
 
 
 
+readLightValue();
 
 
   Serial.println(lux);
@@ -92,25 +89,69 @@ void readLightValue() {
 void adjustColors() {
 
 
-if (lux >= 0 && lux <= 200) {
+if(lux >= 0 && lux <= 50) {
+
+  setColorWarmWhite();
+  delay(2000);
+  NeoPixel.clear();
+  setColorSoftYellow();
+  delay(2000);
+  NeoPixel.clear();
+  setColorRed();
+   delay(2000);
+  NeoPixel.clear();
+  //Maby after circulating throught every color once. M
+  //Make a shuffel/add all together 
+}
+
+else if (lux >= 51 && lux <= 200) {
+    setColorSoftBlue();
+     delay(2000);
+  NeoPixel.clear();
+  setColorLightGreen();
+   delay(2000);
+  NeoPixel.clear();
+  setColorWarmWhite();
+   delay(2000);
+  NeoPixel.clear();
+
 
 
     
     
-    setColorYellow();
-
-    delay(3000);
+    
     
   }
-  else if(lux >=  100 && lux <= 500 ) {
-    setColorGreen();
+  else if(lux >=  201 && lux <= 500 ) {
+
+      setColorBrightBlue();
+       delay(2000);
+  NeoPixel.clear();
+  setColorCoolWhite();
+   delay(2000);
+  NeoPixel.clear();
+  setColorLightGreen();
+   delay(2000);
+  NeoPixel.clear();
+
 
   }
 
-else if(lux >= 500) {
+else if(lux >= 501) {
 
-  setColorMagenta();
 
+    setColorCoolBlue();
+     delay(2000);
+  NeoPixel.clear();
+  setColorWhiteLight(); 
+   delay(2000);
+  NeoPixel.clear();
+
+  setColorCyan();
+   delay(2000);
+  NeoPixel.clear();
+
+  
 }
 }
 void readSliderValue() {
