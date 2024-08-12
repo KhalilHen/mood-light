@@ -21,8 +21,8 @@
     {
       "type": "wokwi-neopixel",
       "id": "wokwi-neopixel-0",
-      "top": -214.7,
-      "left": -10.6,
+      "top": -800.3,
+      "left": 37.4,
       "attrs": {}
     },
     {
@@ -36,8 +36,8 @@
     {
       "type": "wokwi-arduino-mega",
       "id": "mega1",
-      "top": -404.8,
-      "left": -559.4,
+      "top": -395.2,
+      "left": -578.6,
       "rotate": 90,
       "attrs": {}
     },
@@ -54,6 +54,14 @@
       "top": -981.2,
       "left": -311.2,
       "attrs": {}
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": -369.49,
+      "left": -713.86,
+      "rotate": 270,
+      "attrs": { "pixels": "16" }
     }
   ],
   "connections": [
@@ -96,7 +104,10 @@
     [ "keypad1:C1", "mega1:9", "gold", [ "v326.4", "h-19.3", "v-9.6", "h-67.2", "v-9.6" ] ],
     [ "keypad1:C2", "mega1:8", "gold", [ "v326.4", "h-38.4" ] ],
     [ "keypad1:C3", "mega1:7", "gold", [ "v0" ] ],
-    [ "keypad1:C4", "mega1:6", "gold", [ "v345.6", "h-48.3" ] ]
+    [ "keypad1:C4", "mega1:6", "gold", [ "v345.6", "h-48.3" ] ],
+    [ "ring1:GND", "mega1:GND.2", "black", [ "h19.2", "v-48" ] ],
+    [ "ring1:VCC", "mega1:5V.1", "red", [ "h-28.8", "v192", "h259.2", "v-48" ] ],
+    [ "ring1:DOUT", "mega1:3", "green", [ "h38.4", "v192", "h268.8", "v-105.6" ] ]
   ],
   "dependencies": {}
 }

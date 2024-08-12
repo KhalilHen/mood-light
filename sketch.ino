@@ -1,3 +1,7 @@
+#include <Adafruit_NeoPixel.h>
+
+
+
 #include "Neopixel.h"
 #include "Keypadd.h"
 
@@ -54,7 +58,9 @@ if(!turnOffLED) {
 
 
 if(key != NO_KEY) {
-  checkKeyPadValue();
+      Serial.println(key);
+ setColorMagentaPurple();
+//  checkKeyPadValue();
       NeoPixel.clear();
       NeoPixel.show();
       delay(2000);  
@@ -63,15 +69,16 @@ if(key != NO_KEY) {
 
 } 
 else {
+  delay(5000);
+readLightValue();
 
 adjustColors();
 
  NeoPixel.clear();
+ NeoPixel.show();
+delay(2000);
 
-//This is how you adjust the brightness
-//   NeoPixel.setBrightness(10);
-  NeoPixel.show();  // send mn updated pixel colors to the NeoPixel hardware.
-  delay(2000); 
+  
 }
 
 
@@ -85,13 +92,11 @@ adjustColors();
 
 
 
-readLightValue();
 
 
   Serial.println(lux);
 
-  //  checkButtonValue();
-  delay(1000); // Adjust delay as needed
+  delay(1000);
 }
 
 void readLightValue() {
@@ -189,21 +194,28 @@ void checkButtonValue() {
 
     buttonValue = digitalRead(buttonPin);
     if (buttonValue == LOW)  {
-      Serial.println("Button is pressed");
+  //    Serial.println("Button is pressed");
 
    //TODO Add logic here  
           turnOffLED = !turnOffLED;  // Toggle beep state
-      Serial.println(turnOffLED ? "LED is turned off" : "LED is turned on");
+     // Serial.println(turnOffLED ? "LED is turned off" : "LED is turned on");
 
 
     }
     else {
 
-            Serial.println("Button is released");
+      //      Serial.println("Button is released");
 
     }
     oldButtonValue = buttonValue;
 
    }
 
+}
+void setColorMagentaPurple() {
+  for (int i = 0; i < NeoPixel.numPixels(); i++) {
+    NeoPixel.setPixelColor(i, NeoPixel.Color(255, 0, 255));
+  }
+  NeoPixel.show();
+  delay(3000);
 }

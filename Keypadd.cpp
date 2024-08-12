@@ -1,5 +1,13 @@
 #include "Keypadd.h"
 
+// Define ROWS and COLS if not already defined
+#define ROWS 4
+#define COLS 4
+
+// Define the pin arrays
+uint8_t rowPins[ROWS] = { 13, 12, 11, 10 };
+uint8_t colPins[COLS] = { 9, 8, 7, 6 };
+
 char keys[ROWS][COLS] = {
   { '1', '2', '3', 'A' },
   { '4', '5', '6', 'B' },
@@ -7,14 +15,27 @@ char keys[ROWS][COLS] = {
   { '*', '0', '#', 'D' }
 };
 
-
-uint8_t rowPins[ROWS] = { 13, 12, 11, 10 };
-uint8_t colPins[COLS] = { 9, 8, 7, 6 };
-Adafruit_NeoPixel NeoPixel = Adafruit_NeoPixel(10, 5, NEO_GRB + NEO_KHZ800); 
-
+// extern Adafruit_NeoPixel NeoPixel = Adafruit_NeoPixel(10, 5, NEO_GRB + NEO_KHZ800);
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-void setup() {
+
+void checkKeyPadValue() {
+  char key = keypad.getKey();
+  
+  if (key) { // Check if a key is pressed
+    switch (key) {
+      case '1': setColorMagenta(); break;
+      case '2': setColorPink(); break;
+      case '3': setColorPurple(); break;
+      case '4': setColorOrange(); break;
+      case '5': setColorSilver(); break;
+      case '6': setColorGold(); break;
+      case '7': setColorTurquoise(); break;
+      case '8': setColorCoral(); break;
+      case '9': setColorLemonGreen(); break;
+      default: break; 
+    }
+  }
 }
 
 void setColorMagenta() {
@@ -22,6 +43,7 @@ void setColorMagenta() {
     NeoPixel.setPixelColor(i, NeoPixel.Color(255, 0, 255));
   }
   NeoPixel.show();
+  delay(3000);
 }
 
 void setColorPink() {
@@ -78,23 +100,4 @@ void setColorLemonGreen() {
     NeoPixel.setPixelColor(i, NeoPixel.Color(50, 205, 50));
   }
   NeoPixel.show();
-}
-
-void checkKeyPadValue() {
-  char key = keypad.getKey();
-  
-  if (key) { // Check if a key is pressed
-    switch (key) {
-      case '1': setColorMagenta(); break;
-      case '2': setColorPink(); break;
-      case '3': setColorPurple(); break;
-      case '4': setColorOrange(); break;
-      case '5': setColorSilver(); break;
-      case '6': setColorGold(); break;
-      case '7': setColorTurquoise(); break;
-      case '8': setColorCoral(); break;
-      case '9': setColorLemonGreen(); break;
-      default: break; 
-    }
-  }
 }
